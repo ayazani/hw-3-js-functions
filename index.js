@@ -14,8 +14,8 @@ console.log(splitAndMerge("Hello World!",","));
 
 // 2 task
 function convert(obj) {
-    let result = [];
-    for (let key in obj){
+    var result = [];
+    for (var key in obj) {
         result.push([key, obj[key]]);
     }
     return result;
@@ -24,8 +24,8 @@ function convert(obj) {
 
 // 3 task
 function toCamelCase(str) {
-    let result = "";
-    for (let i = 0; i < str.length; i++){
+    var result = "";
+    for (var i = 0; i < str.length; i++){
         if(str[i] === "-" || str[i] === "_"){
          i++;
          result += str[i].toUpperCase();
@@ -48,15 +48,15 @@ function reverseWords(str) {
 
 // 5 task
 function stringExpansion(str) {
-    let hasNumbers = false;
-    let res = "";
-    for (let i = 0; i < str.length; i++){
+    var hasNumbers = false;
+    var res = "";
+    for (var i = 0; i < str.length; i++){
         if(!isNaN(Number(str[i]))){
             hasNumbers = true;
             if(Number(str[i]) && Number(str[i+1])){
                 continue;
             } else {
-                for (let j = 0; j < Number(str[i]); j++) {
+                for (var j = 0; j < Number(str[i]); j++) {
                     res += str[i + 1];
                 }
             }
@@ -71,22 +71,22 @@ console.log(stringExpansion('abcde') === 'abcde'); */
 
 // 6 task
 function largest() {
-    let res = arguments[0];
-    for(let i = 0; i < arguments.length; i++){
+    var res = arguments[0];
+    for(var i = 0; i < arguments.length; i++){
         if( res < arguments[i]) res = arguments[i]
     }
     return res;
 }
 function smallest() {
-    let res = arguments[0];
-    for(let i = 0; i < arguments.length; i++){
+    var res = arguments[0];
+    for(var i = 0; i < arguments.length; i++){
         if( res > arguments[i]) res = arguments[i]
     }
     return res;
 }
 // 7 task
 function transform(arr) {
-    let res = [];
+    var res = [];
     arr.forEach(function (item) {
         res.push(function () {
             return item;
@@ -124,8 +124,8 @@ function countDown(arg) {
 
 // 10 task
 Function.prototype.myBind = function (context) {
-    let fn = this;
-    let args = Array.prototype.slice.call(arguments, 1);
+    var fn = this;
+    var args = Array.prototype.slice.call(arguments, 1);
 
     if (typeof(fn) !== 'function') {
         throw new Error('Not a function!');
