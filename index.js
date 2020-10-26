@@ -27,10 +27,10 @@ function toCamelCase(str) {
     var result = "";
     for (var i = 0; i < str.length; i++){
         if(str[i] === "-" || str[i] === "_"){
-         i++;
-         result += str[i].toUpperCase();
+            i++;
+            result += str[i].toUpperCase();
         } else {
-        result += str[i];
+            result += str[i];
         }
     }
     return result;
@@ -42,18 +42,19 @@ console.log(toCamelCase("The_Stealth_Warrior"));
 
 // 4 task
 function reverseWords(str) {
-    return str.split("").reverse().join("");
+    var reversedStr = str.split("").reverse().join("");
+    return reversedStr.split(' ').reverse().join(' ');
 }
-//console.log(reverseWords(" A fun little challenge! "));
+//console.log(reverseWords(" A fun little challenge! ") === " A nuf elttil !egnellahc "); // => " A nuf elttil !egnellahc "
 
 // 5 task
 function stringExpansion(str) {
     var hasNumbers = false;
     var res = "";
     for (var i = 0; i < str.length; i++){
-        if(!isNaN(Number(str[i]))){
+        if(!isNaN(Number(str[i]))){ //transforming to number AND cheking if it is a NaN<=>letter, or a number
             hasNumbers = true;
-            if(Number(str[i]) && Number(str[i+1])){
+            if(Number(str[i]) && Number(str[i+1])){ //cheking if there are to numbers straight
                 continue;
             } else {
                 for (var j = 0; j < Number(str[i]); j++) {
@@ -64,10 +65,10 @@ function stringExpansion(str) {
     }
     return hasNumbers ? res : str;
 }
-/*  //cond check
+  //cond check
 console.log(stringExpansion('3D2a5d2f') === 'DDDaadddddff');
 console.log(stringExpansion('3d332f2a') === 'dddffaa');
-console.log(stringExpansion('abcde') === 'abcde'); */
+console.log(stringExpansion('abcde') === 'abcde');
 
 // 6 task
 function largest() {
@@ -95,21 +96,13 @@ function transform(arr) {
     return res;
 }
 // 8 task
-function sum(arg, ...args) {
-    if(args.length === 0){
-        return !arg ? 0 : arg;
-    }
-    else if (args.length === 1){
-        return arg + args[0];
-    } else {
-        let temp = args[0];
-        args.shift();
-        return (arg + sum(temp, ...args));
-    }
+function sum() {
+    var args = [].slice.call(arguments);
+    if(arguments.length === 0) return  0;
+    else return (args[0] + sum.apply(null, args.slice(1)));
 }
-/* //check
-let a = sum(1, 3, 5, 7);
-console.log(a); */
+   //check
+//console.log(sum(1, 3, 5, 7));
 
 // 9 task
 function countDown(arg) {
@@ -138,5 +131,5 @@ Function.prototype.myBind = function (context) {
 };
 /*  //check cond
 function addPropToNumber(number) { return this.prop + number; }
-let bound = addPropToNumber.myBind({ prop: 9 });
+var bound = addPropToNumber.myBind({ prop: 9 });
 console.log(bound(1)); */
