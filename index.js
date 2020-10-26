@@ -107,10 +107,10 @@ function sum() {
 // 9 task
 function countDown(arg) {
     if (arg === 0){
-        console.log(0);
+        setTimeout(function (){console.log(0)}, 1000);
     } else {
-        console.log(arg);
-        countDown(arg-1);
+        setTimeout(function (){console.log(arg);}, 1000);
+        setTimeout(function (){countDown(arg-1)}, 1000);
     }
 }
 //countDown(3); // 3 2 1 0
